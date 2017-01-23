@@ -1,0 +1,19 @@
+[ignore]
+.*/node_modules/.*
+
+[include]
+
+[libs]
+flow-typed/npm
+flow-support/decls
+
+[options]
+esproposal.decorators=ignore
+# since the helpers is a global, make sure flow treats it that way
+module.name_mapper='helpers' -> '<PROJECT_ROOT>/src/js/helpers'
+# https://gist.github.com/MoOx/12ac2bee8d876a5c1fe1593e4815895d
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow-support/flow/CSSModule.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow-support/flow/CSSModule.js.flow'
+# https://github.com/Robert-W/esri-redux/blob/master/.flowconfig
+#module.name_mapper='esri\/.*'->'<PROJECT_ROOT>/src/js/index.js'
+#module.name_mapper='dojo\/.*'->'<PROJECT_ROOT>/src/js/index.js'
