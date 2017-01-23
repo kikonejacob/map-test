@@ -16,6 +16,6 @@ module.exports = {
       'process.env.NODE_ENV': '"development"'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:9000', browser: 'chrome' })
+    new OpenBrowserPlugin({ url: 'http://localhost:9000' })
   ]
 };

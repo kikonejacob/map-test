@@ -17,11 +17,13 @@ var cssLoaders = ['css-loader?sourceMap&modules&importLoaders=1&localIdentName=[
   'sass-loader?sourceMap&includePaths[]=' + pathTo('src/scss')];
 
 module.exports = {
+  node: {
+  fs: "empty"
+  },
   entry: [
     './index.js'
   ],
   context: pathTo('./src'),
-  target: 'web',
   output: {
     path: pathTo('./public'),
     filename: './index.js'
@@ -34,6 +36,8 @@ module.exports = {
       pathTo('./node_modules')
     ],
     alias: {
+      webworkify: 'webworkify-webpack-dropin',
+      'gl-matrix': pathTo('./node_modules/gl-matrix/dist/gl-matrix.js')
     }
   },
   module: {
@@ -55,7 +59,12 @@ module.exports = {
         test: /\.s?css$/,
         loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: cssLoaders.join('!')})
       }
-    ]
+    ],
+    postLoaders: [{
+      include: /node_modules\/mapbox-gl/,
+      loader: 'transform-loader',
+      query: 'brfs',
+    }]
   },
   plugins: [
     new ExtractTextPlugin({
