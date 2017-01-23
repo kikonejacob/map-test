@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Map from './Components/map';
 import {connect} from 'react-redux';
 
@@ -9,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-container">
-          <div> fdlfkdldf </div>
+          <Map/>
         </div>
       </div>
     );

@@ -21,11 +21,18 @@ export default class Map extends Component {
 
     return (
       <MapGL
-        mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-        perspectiveEnabled={true}
-        { ...viewport }
+         mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+        width={400}
+  height={400}
+  latitude={37.7577}
+  longitude={-122.4376}
+  zoom={8}
+  onChangeViewport={viewport => {
+    const {latitude, longitude, zoom} = viewport;
+    // Optionally call `setState` and use the state to update the map.
+  }}
         >
-         <ScatterPlot data={SAMPLE_DATA}   viewport={viewport} params={params}/>;
+     
 
       </MapGL>
     )
