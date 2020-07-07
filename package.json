@@ -54,7 +54,7 @@
     "d3-request": "^1.0.2",
     "d3-scale": "^1.0.3",
     "discify": "^1.2.0",
-    "electron": "^1.4.7",
+    "electron": "^9.1.0",
     "envify": "^3.4.0",
     "eslint": "^2.0.0",
     "eslint-config-uber-es2015": "^2.0.0",
